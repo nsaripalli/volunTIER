@@ -1,0 +1,25 @@
+.parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile-dropdown {
+
+}
+
+.find-opp {
+
+}
+
+.activity-feed {
+
+}
+
+.search-bar {
+
+}
+
+#bar {
+    width: 25vw;
+}
