@@ -46,52 +46,30 @@ class FeaturedOpportunities extends React.Component {
     }
 
     render () {
+        const featured = this.state.featuredOpportunities.map(function (item) {
+            return <Card>
+                <Card.Img variant="top" src="https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg" />
+                <Card.Body>
+                    <Card.Title>{item.NAME}</Card.Title>
+                    <Card.Text>
+                        <div className="featuredDesc">{item.DESCRIPTION}</div>
+                        <div className="featuredOrg">{item.orgname}</div>
+                        <div className="estTime">Length: {item.est_time}</div>
+                    </Card.Text>
+                </Card.Body>
+                <Card.Footer>
+                    <Button variant="primary btn-block">Attend</Button>
+                </Card.Footer>
+            </Card>
+        });
+
         return (
             <>
                 <Card className="text-center">
                     <Card.Header>Featured Activities</Card.Header>
                     <Card.Body>
                         <CardDeck>
-                            <Card>
-                                <Card.Img variant="top" src="https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg" />
-                                <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This content is a little bit longer.
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <Button variant="primary btn-block">Attend this event!</Button>
-                                </Card.Footer>
-                            </Card>
-                            <Card>
-                                <Card.Img variant="top" src="https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg" />
-                                <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This card has supporting text below as a natural lead-in to additional
-                                        content.{' '}
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <Button variant="primary btn-block">Attend this event!</Button>
-                                </Card.Footer>
-                            </Card>
-                            <Card>
-                                <Card.Img variant="top" src="https://dhggywfvre0o8.cloudfront.net/app/uploads/2017/11/22153252/Typeform-Blog-BlackFriday-Cover-AskAwesomely.jpg" />
-                                <Card.Body>
-                                    <Card.Title>Card title</Card.Title>
-                                    <Card.Text>
-                                        This is a wider card with supporting text below as a natural lead-in to
-                                        additional content. This card has even longer content than the first to
-                                        show that equal height action.
-                                    </Card.Text>
-                                </Card.Body>
-                                <Card.Footer>
-                                    <Button variant="primary btn-block">Attend this event!</Button>
-                                </Card.Footer>
-                            </Card>
+                            {featured}
                         </CardDeck>
                     </Card.Body>
                     <Card.Footer> <Button variant="primary btn-block" href="/opportunities">Find more opportunities!</Button></Card.Footer>

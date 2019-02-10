@@ -15,7 +15,7 @@ var instance = axios.create({
         'Accept': 'application/json',
         'Access-Control-Allow-Origin': '*'
     }
-})
+});
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -55,7 +55,10 @@ class Dashboard extends React.Component {
 
     onClickButton1() {
         const leaderboard = this.state.globalList.map(function (item) {
-            return <ListGroup.Item> {item.name} </ListGroup.Item>
+            return <ListGroup.Item>
+                <div className="name">{item.name}</div>
+                <div className="points">{item.points}</div>
+            </ListGroup.Item>
 
         });
 
@@ -82,7 +85,7 @@ class Dashboard extends React.Component {
         const leaderboard = this.state.globalList.map(function (item) {
             return <ListGroup.Item>
                 <div className="name">{item.name}</div>
-                <div className="score">{item.points}</div>
+                <div className="points">{item.points}</div>
             </ListGroup.Item>
         });
         return (

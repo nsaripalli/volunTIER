@@ -6,7 +6,7 @@ router.get('/all', function (req, res) {
     db.getEvents().then((result) => {
         res.send(result)
     }).catch((error) => {
-        res.send(error);
+        res.send(error)
     })
 });
 
@@ -15,7 +15,7 @@ router.post('/', function (req, res) {
     db.getEvent(event_id).then((result) => {
         res.send(result)
     }).catch((error) => {
-        res.send(error);
+        res.send(error)
     });
 });
 
@@ -23,7 +23,7 @@ router.get('/random', function (req, res) {
     db.getFeaturedEvents().then((result) => {
         res.send(result)
     }).catch((error) => {
-
+        res.send(error)
     });
 });
 

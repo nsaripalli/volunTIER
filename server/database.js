@@ -48,9 +48,11 @@ module.exports = {
             });
         })
     },
-    getFeaturedEvents: function() {
+    getFeaturedEvents: function () {
         return new Promise((resolve, reject) => {
-            connection.query('GET_RANDOM_EVENTS()', function (err, result, fields) {
+            connection.query('SELECT NAME, DESCRIPTON, est_time, orgname FROM event\n' +
+                'LEFT JOIN organization o on event.organization_idorganization = o.idorganization\n' +
+                'ORDER BY RAND() limit 3;', function (err, result, fields) {
                 if (!err) {
                     resolve(result)
                 } else {
