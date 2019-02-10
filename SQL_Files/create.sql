@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`event` (
   `est_time` BIGINT(255) NULL,
   `lat` DECIMAL(10,8) NOT NULL,
   `lon` DECIMAL(11,8) NOT NULL,
+  DESCRIPTON VARCAHR(255),
   `organization_idorganization` INT NOT NULL,
   PRIMARY KEY (`event_id`, `organization_idorganization`),
   INDEX `fk_event_organization1_idx` (`organization_idorganization` ASC),

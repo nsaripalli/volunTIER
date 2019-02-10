@@ -87,3 +87,20 @@ CALL GET_MOST_RECENTS_COMMENTS_FOR_POSTS(20);
 
 
 
+DELIMITER //
+
+DROP PROCEDURE IF EXISTS GET_RANDOM_EVENTS //
+CREATE PROCEDURE GET_RANDOM_EVENTS()
+
+BEGIN
+
+SELECT NAME, DESCRIPTON, est_time, orgname
+FROM event
+LEFT JOIN organization o on event.organization_idorganization = o.idorganization
+ORDER BY RAND()
+limit 3;
+
+END
+//
+
+CALL GET_RANDOM_EVENTS()
