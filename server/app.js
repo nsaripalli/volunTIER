@@ -12,7 +12,7 @@ let userRouter = require('./routes/userRouter');
 let leaderboardRouter = require('./routes/leaderboardRouter');
 
 app.use('/event', eventRouter);
-app.use('/user', userRouter);
+// app.use('/user', userRouter);
 app.use('/leaderboard', leaderboardRouter);
 
 app.use(session({
@@ -27,8 +27,8 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.listen(3000, function () {
-    console.log('listening on 3000...')
+app.listen(8080, function () {
+    console.log('listening on 8080...')
 });
 
 module.exports = app;
