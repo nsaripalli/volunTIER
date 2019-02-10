@@ -48,9 +48,20 @@ module.exports = {
             });
         })
     },
+    getFeaturedEvents: function() {
+        return new Promise((resolve, reject) => {
+            connection.query('GET_RANDOM_EVENTS()', function (err, result, fields) {
+                if (!err) {
+                    resolve(result)
+                } else {
+                    reject(err)
+                }
+            });
+        })
+    },
     getGlobalLeaderboard: function () {
         return new Promise((resolve, reject) => {
-            connection.query('select name, username, points from volunteer order by points desc limit 100;',
+            connection.query('select name, username, points from volunteer order by points desc limit 10;',
                 function (err, result, fields) {
                     if (!err) {
                         resolve(result);

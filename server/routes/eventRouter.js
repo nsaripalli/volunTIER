@@ -19,4 +19,12 @@ router.post('/', function (req, res) {
     });
 });
 
+router.get('/random', function (req, res) {
+    db.getFeaturedEvents().then((result) => {
+        res.send(result)
+    }).catch((error) => {
+
+    });
+});
+
 module.exports = router;

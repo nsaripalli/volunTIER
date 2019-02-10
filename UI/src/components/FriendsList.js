@@ -8,7 +8,16 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 
-const API_URL = "http://localhost/8080";
+const API_URL = "http://localhost:8080";
+
+var instance = axios.create({
+    baseURL: API_URL,
+    headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+    }
+});
 
 var instance = axios.create({
     baseURL: "http://localhost/8080",
@@ -32,22 +41,24 @@ class Dashboard extends React.Component {
                     <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
                 </>,
             globalList:[]
-
-        }
+        };
 
         this.onClickButton1 = this.onClickButton1.bind(this);
         this.onClickButton2 = this.onClickButton2.bind(this);
         this.getGlobalLeaderboard = this.getGlobalLeaderboard.bind(this);
     }
-
-    getGlobalLeaderboard(){
+    getGlobalLeaderboard() {
+        let currentComponent = this;
         instance.get('/leaderboard/global').then(function (response) {
-            this.state.globalList = response.data;
-            console.log(this.state.globalList);
+            currentComponent.setState({
+                globalList: response.data})
         }).catch(function (error) {
             console.log(error)
         })
+    };
 
+    componentWillMount() {
+        this.getGlobalLeaderboard();
     }
 
 
@@ -76,11 +87,9 @@ class Dashboard extends React.Component {
          this.getGlobalLeaderboard()
      }
 
-
     render () {
         const leaderboard = this.state.globalList.map(function(item){
-            return <ListGroup.Item> {item.name} </ListGroup.Item>
-
+            return <ListGroup.Item><div className="name">{item.name}</div><div className="score">{item.points}</div></ListGroup.Item>
         });
         return (
             <>
