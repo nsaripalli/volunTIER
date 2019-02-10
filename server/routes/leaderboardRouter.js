@@ -4,6 +4,7 @@ let db = require('../database');
 
 router.get('/global', function (req, res) {
     db.getGlobalLeaderboard().then((result) => {
+        console.log(typeof(result));
         res.send(result)
     }).catch((error) => {
         console.log(error);
