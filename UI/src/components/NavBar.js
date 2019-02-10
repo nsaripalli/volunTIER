@@ -16,25 +16,27 @@ class NavBar extends React.Component {
 
     render () {
         return (
-          <div>
-              <Navbar bg="light" expand="lg">
-                  <Navbar.Brand href="#home">volunTIER</Navbar.Brand>
+          <>
+              <Navbar bg="light">
+                  <Navbar.Brand href="/dashboard">volunTIER</Navbar.Brand>
                   <Navbar.Toggle aria-controls="basic-navbar-nav" />
                   <Navbar.Collapse id="basic-navbar-nav">
                       <Nav className="mr-auto">
                           <div class="parent">
+                              <div className="dashboard">
+                                  <Nav.Link href="/dashboard">
+                                     Dashboard
+                                  </Nav.Link>
+                              </div>
                               <div className="find-opp">
-                                  <Nav.Link>
-                                      <Link to='/'>
+                                  <Nav.Link href="/opportunities">
                                           Find Opportunities
-                                      </Link>
-
                                   </Nav.Link>
                               </div>
                             <div class="activity-feed">
-                                <Nav.Link><Link to='/dashboard'>
+                                <Nav.Link href="/ActivityFeed">
                                     Activity Feed
-                                </Link></Nav.Link>
+                                </Nav.Link>
                             </div>
 
                               <div className="search-bar">
@@ -44,21 +46,28 @@ class NavBar extends React.Component {
                                       <Button variant="outline-success">Search</Button>
                                   </Form>
                               </div>
+                          </div>
+                      </Nav>
+
+                              <Nav>
                               <div className="profile-dropdown">
-                                  <NavDropdown title="Profile" id="basic-nav-dropdown">
+                                  <NavDropdown title="Profile" id="dropdown-menu-align-right">
+                                      <div className="profile-dropdown-drop">
                                       <NavDropdown.Item href="#action/3.1">View
                                           Account</NavDropdown.Item>
                                       <NavDropdown.Item
                                           href="#action/3.2">Preferences</NavDropdown.Item>
                                       <NavDropdown.Divider/>
-                                      <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
+                                      <NavDropdown.Item href="/">Logout</NavDropdown.Item>
+                                      </div>
                                   </NavDropdown>
                               </div>
-                          </div>
-                      </Nav>
+                              </Nav>
+
+
                   </Navbar.Collapse>
               </Navbar>
-          </div>
+          </>
         );
     }
 }

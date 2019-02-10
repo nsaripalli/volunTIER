@@ -50,12 +50,16 @@ class LoginPage extends React.Component {
                     <p>Be the best volunteer you can be.</p>
                     <hr/>
                     <div className="box-layout__buttons">
-                        <Button variant="secondary" onClick={this.openSignUpModal}>
+
+                        <Button variant="secondary btn-block" className="box-layout__buttons__button" onClick={this.openSignUpModal}>
                             Sign Up!
                         </Button>
-                        <Button variant="primary" onClick={this.openLoginModal}>
+
+
+                        <Button variant="primary btn-block" className="box-layout__buttons__button" onClick={this.openLoginModal}>
                             Log in
                         </Button>
+
                     </div>
                 </div>
             </div>
