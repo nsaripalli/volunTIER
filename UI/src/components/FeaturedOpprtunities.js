@@ -67,7 +67,7 @@ class FeaturedOpportunities extends React.Component {
                             </Card>
                         </CardDeck>
                     </Card.Body>
-                    <Card.Footer > <Button variant="primary btn-block">Find more opportunities!</Button></Card.Footer>
+                    <Card.Footer> <Button variant="primary btn-block" href="/opportunities">Find more opportunities!</Button></Card.Footer>
                 </Card>
             </>
 

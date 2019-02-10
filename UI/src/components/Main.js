@@ -3,6 +3,8 @@ import { Switch, Route } from 'react-router-dom'
 import LoginPage from './LoginPage'
 import Dashboard from './Dashboard'
 import ActivityFeed from './ActivityFeed';
+import Opportunities from './Opportunities';
+import './main.css'
 
 // The Main component renders one of the three provided
 // Routes (provided that one matches). Both the /roster
@@ -10,11 +12,13 @@ import ActivityFeed from './ActivityFeed';
 // with /roster or /schedule. The / route will only match
 // when the pathname is exactly the string "/"
 const Main = () => (
-    <main>
+    <main className="background">
         <Switch>
             <Route exact path='/' component={LoginPage}/>
             <Route path='/dashboard' component={Dashboard}/>
             <Route path='/activity-feed' component={ActivityFeed}/>
+            <Route path='/opportunities' component={Opportunities}/>
+
         </Switch>
     </main>
 )

@@ -2,11 +2,3 @@
     margin: auto;
     max-width: none;
 }
-
-.name {
-    float: left;
-}
-
-.score {
-    float: right;
-}

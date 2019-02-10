@@ -21,6 +21,7 @@ class Dashboard extends React.Component {
     render () {
         return (
             <>
+                <div className="background">
             <NavBar/>
             <br/>
                 <Container class="m-0 margin-low">
@@ -41,7 +42,7 @@ class Dashboard extends React.Component {
 
 
                 </Container>
-
+                </div>
 
             </>
 

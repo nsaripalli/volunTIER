@@ -21,15 +21,15 @@ class HoursCard extends React.Component {
         return (
             <>
                 <Card className="p-3">
+                    <small className="text-muted">
+                        You've volunteered for...
+                    </small>
                     <blockquote className="blockquote mb-0 card-body">
-                        <p>
-                            140 hours?
-                        </p>
-                        <footer className="blockquote-footer">
-                            <small className="text-muted">
-                                Since May 2018
-                            </small>
-                        </footer>
+                        <h1>
+                            140 hours!
+                        </h1>
+                        {/*<footer className="blockquote-footer">*/}
+                        {/*</footer>*/}
                     </blockquote>
                 </Card>
             </>

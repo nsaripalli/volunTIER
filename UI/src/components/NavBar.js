@@ -33,11 +33,11 @@ class NavBar extends React.Component {
                                           Find Opportunities
                                   </Nav.Link>
                               </div>
-                            <div class="activity-feed">
-                                <Nav.Link href="/ActivityFeed">
-                                    Activity Feed
-                                </Nav.Link>
-                            </div>
+                            {/*<div class="activity-feed">*/}
+                                {/*<Nav.Link href="/ActivityFeed">*/}
+                                    {/*Activity Feed*/}
+                                {/*</Nav.Link>*/}
+                            {/*</div>*/}
 
                               <div className="search-bar">
                                   <Form inline>

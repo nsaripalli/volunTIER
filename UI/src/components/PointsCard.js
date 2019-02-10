@@ -21,15 +21,15 @@ class PointsCard extends React.Component {
         return (
             <>
                 <Card className="p-3">
+                    <small className="text-muted">
+                        You've accumulated...
+                    </small>
                     <blockquote className="blockquote mb-0 card-body">
-                        <p>
-                            1400 Points!
-                        </p>
-                        <footer className="blockquote-footer">
-                            <small className="text-muted">
-                                Since May 2018
-                            </small>
-                        </footer>
+                        <h1>
+                            1400 points!
+                        </h1>
+                        {/*<footer className="blockquote-footer">*/}
+                        {/*</footer>*/}
                     </blockquote>
                 </Card>
             </>

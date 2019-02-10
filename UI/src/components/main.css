@@ -1,0 +1,8 @@
+.background{
+    background-image: url('https://www.jindalsteelpower.com/img/admin/careers/header_images/resize/bring.jpg');
+    background-size: cover;
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    background-attachment: fixed;
+}
