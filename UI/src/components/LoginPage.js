@@ -46,7 +46,9 @@ class LoginPage extends React.Component {
         return <>
             <div className="box-layout">
                 <div className="box-layout__box">
+                    <img width="200px" src="https://www.logolynx.com/images/logolynx/43/431d9159dca9f1d8e1ab29b5602e5dfd.png"/>
                     <h1 className="box-layout__title">volunTIER</h1>
+                    <br/>
                     <p>Be the best volunteer you can be.</p>
                     <hr/>
                     <div className="box-layout__buttons">

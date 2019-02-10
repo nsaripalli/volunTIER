@@ -11,8 +11,8 @@
 
 .box-layout {
     align-items: center;
-    background-color: dark-grey;
-    /*background-image: url('/images/bg.jpg');*/
+    background-color: gray;
+    background-image: url('https://www.jindalsteelpower.com/img/admin/careers/header_images/resize/bring.jpg');
     background-size: cover;
     display: flex;
     height: 100vh;
@@ -21,8 +21,9 @@
 }
 
 .box-layout__box {
+    background-color: white;
      border-radius: 3px;
-     padding: 10px;
+     padding: 100px;
      text-align: center;
      width: 35rem;
  }
