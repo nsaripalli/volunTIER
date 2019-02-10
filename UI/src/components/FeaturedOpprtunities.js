@@ -8,15 +8,42 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
+import axios from "axios";
 
+var instance = axios.create({
+    baseURL: "http://localhost:8080",
+    headers:{
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+    }
+})
 
 class FeaturedOpportunities extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            featuredOpportunities: []
+        };
+
+        this.getFeatured = this.getFeatured.bind(this);
     }
 
+    getFeatured() {
+        let currentComponent = this;
+        instance.get('/event/random').then(function (response) {
+            currentComponent.setState({
+                featuredOpportunities: response.data
+            })
+        }).catch(function (error) {
+            console.log(error)
+        })
+    }
 
-
+    componentWillMount() {
+        this.getFeatured()
+    }
 
     render () {
         return (
