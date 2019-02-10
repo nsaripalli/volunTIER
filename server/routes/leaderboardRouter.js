@@ -3,7 +3,7 @@ let router = express.Router();
 let db = require('../database');
 
 router.get('/global', function (req, res) {
-    db.getLeaderboard().then((result) => {
+    db.getGlobalLeaderboard().then((result) => {
         res.send(result)
     }).catch((error) => {
         console.log(error);
