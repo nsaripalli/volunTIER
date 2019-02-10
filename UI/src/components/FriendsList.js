@@ -10,6 +10,15 @@ import ListGroup from 'react-bootstrap/ListGroup';
 
 const API_URL = "http://localhost/8080";
 
+var instance = axios.create({
+    baseURL: "http://localhost/8080",
+    headers:{
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+    }
+})
+
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
@@ -32,20 +41,24 @@ class Dashboard extends React.Component {
     }
 
     getGlobalLeaderboard(){
-        axios.get(API_URL + '/leaderboard/global').then(function (response) {
-            this.state.globalList = response;
+        instance.get('/leaderboard/global').then(function (response) {
+            this.state.globalList = response.data;
+            console.log(this.state.globalList);
+        }).catch(function (error) {
+            console.log(error)
         })
 
     }
 
 
         onClickButton1() {
+            const leaderboard = this.state.globalList.map(function(item){
+                return <ListGroup.Item> {item.name} </ListGroup.Item>
+
+            });
+
             this.setState({
-                text:             <>
-                    <ListGroup.Item>Friends?</ListGroup.Item>
-                    <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                    <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                </>
+                text:{leaderboard}
             });
         }
 
@@ -59,11 +72,12 @@ class Dashboard extends React.Component {
             });
         }
 
-
+     componentDidMount() {
+         this.getGlobalLeaderboard()
+     }
 
 
     render () {
-        this.getGlobalLeaderboard()
         const leaderboard = this.state.globalList.map(function(item){
             return <ListGroup.Item> {item.name} </ListGroup.Item>
 
@@ -77,7 +91,7 @@ class Dashboard extends React.Component {
                                 <Nav.Link href="#friends" onClick={this.onClickButton1}>Friends</Nav.Link>
                             </Nav.Item>
                             <Nav.Item>
-                                <Nav.Link href="#global" onClick={this.onClickButton2}>Global</Nav.Link>
+                                <Nav.Link href="#global">Global</Nav.Link>
                             </Nav.Item>
                         </Nav>
                     </Card.Header>
@@ -85,6 +99,7 @@ class Dashboard extends React.Component {
                         <Card.Title>Rankings</Card.Title>
                         <Card.Text>
                             <ListGroup className="list-group-flush">
+                                {/*{this.state.text}*/}
                                 {leaderboard}
                             </ListGroup>
 
